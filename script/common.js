@@ -247,6 +247,20 @@ function setYdQvXian(json) {
 }
 
 
+//格式化日期：yyyy-MM-dd
+function formatDate(date) {
+    var myyear = date.getFullYear();
+    var mymonth = date.getMonth()+1;
+    var myweekday = date.getDate();
+
+    if(mymonth < 10){
+        mymonth = "0" + mymonth;
+    }
+    if(myweekday < 10){
+        myweekday = "0" + myweekday;
+    }
+    return (myyear+"-"+mymonth + "-" + myweekday);
+}
 // 基于准备好的dom，初始化echarts实例
 
 function setWeekData(json) {
@@ -257,6 +271,9 @@ function setWeekData(json) {
         data.push(360 + i);
         dataAxis.push(i);
     }
+
+
+
     var weekChart = echarts.init(document.getElementById('yd7Chart'));
 
     var option = {
