@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>办公楼智慧能管系统</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/common1.css">
+    <link rel="stylesheet" href="css/swiper-4.1.0.min.css">
+</head>
+<body style="background: url('img/bg_main.png');position: relative" >
+<div class="main" >
+    <div class="logoheader  absolute1">
+        <img src="img/logo.png" class="absolute1 logo">
+
+        <div class="swiper-container main planSwiper" style="margin: 0">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-no-swiping">
+                    <div class=" absolute1 floorText">1<span>楼</span></div>
+                </div>
+                <div class="swiper-slide swiper-no-swiping">
+                    <div class=" absolute1 floorText">2<span>楼</span></div>
+                </div>
+                <div class="swiper-slide swiper-no-swiping">
+                    <div class=" absolute1 floorText">3<span>楼</span></div>
+                </div>
+                <div class="swiper-slide swiper-no-swiping">
+                    <div class=" absolute1 floorText">4<span>楼</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="border ydtongji absolute1" id="electricity">
+        <img class="absolute1 ydRect" src="img/yongdiantongji.png">
+        <img class="absolute1 ydCircle" src="img/energy_circle.png">
+        <img class="absolute1 ydIcon1" src="img/elec.png">
+        <img class="absolute1 ydIcon2" src="img/elec.png">
+        <p class="absolute1 titleText monthUseValue">{{month}}<span class="yd-unit">kW·h</span></p>
+        <p class="absolute1 titleText monthUseText">本月用电</p>
+        <p class="absolute1 titleText todayUseValue">{{today}}<span class="yd-unit">kW·h</span></p>
+        <p class="absolute1 titleText todayUseText">今日用电</p>
+        <p class="absolute1 titleText yesterdayUseValue">{{yesterday}}<span class="yd-unit">kW·h</span></p>
+        <p class="absolute1 titleText yesterdayUseText">昨日用电</p>
+
+    </div>
+
+    <div class="border yongdianqvxian absolute1">
+        <img class="absolute1 ydQvRect" src="img/ydqvxian.png">
+
+        <div class="absolute1 ydQXChart" id="ydQXChart">
+
+        </div>
+    </div>
+
+    <div class="border yichangtixian absolute1">
+        <img class="absolute1 deviceYichang" src="img/yichang.png">
+
+        <div class="deviceYCContent devMsg " style="overflow-y: hidden">
+            <ul id="devUl">
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="border huanjingyichang absolute1">
+        <img class="absolute1 envYC" src="img/env_yichang.png">
+
+        <div class="deviceYCContent envMSg" style="overflow-y: hidden">
+            <ul id="envUl">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="border gongao absolute1">
+        <img class="absolute1 deviceYichang" src="img/gonggao.png">
+
+        <div class="deviceYCContent">
+
+
+        </div>
+    </div>
+
+    <div class="border dianliu24 absolute1">
+        <img class="absolute1 i24Rect" src="img/I24title.png">
+
+        <div class="absolute1 dlChartDiv" id="dlChart">
+
+        </div>
+    </div>
+
+    <div class="border yongdian7day absolute1">
+        <img class="absolute1 yd7" src="img/lastweek.png">
+
+        <div class="absolute1 yd7ChartDiv" id="yd7Chart">
+
+        </div>
+    </div>
+
+    <div class="border huangjingjiance absolute1">
+        <div class="swiper-container main envSwiper" style="margin: 0">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-no-swiping" id="floor1Env">
+                    <img class="absolute1 envBG" src="img/env_bg.png" style="">
+                    <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
+                    <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
+                    <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
+                    <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+
+                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+
+                        <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
+                                style="text-align: left">{{pm25}}<span
+                                style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                                style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                                style="text-align: left">{{pm10}}[<span
+                                style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                                style="text-align: left">{{yanwu}}ug/m³<span
+                                style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                                style="text-align: left">{{jiaquan}}ug/m³<span
+                                style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
+
+                    </div>
+
+                </div>
+                <div class="swiper-slide swiper-no-swiping" id="floor2Env">
+                    <img class="absolute1 envBG" src="img/env_bg.png" style="">
+                    <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
+                    <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
+                    <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
+                    <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+
+                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+
+                        <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
+                                style="text-align: left">{{pm25}}<span
+                                style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                                style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                                style="text-align: left">{{pm10}}<span
+                                style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                                style="text-align: left">{{yanwu}}ug/m³<span
+                                style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                                style="text-align: left">{{jiaquan}}ug/m³<span
+                                style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
+
+                    </div>
+
+                </div>
+                <div class="swiper-slide swiper-no-swiping" id="floor3Env">
+                    <img class="absolute1 envBG" src="img/env_bg.png" style="">
+                    <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
+                    <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
+                    <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
+                    <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+
+                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+
+                        <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
+                                style="text-align: left">{{pm25}}<span
+                                style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                                style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                                style="text-align: left">{{pm10}}<span
+                                style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                                style="text-align: left">{{yanwu}}ug/m³<span
+                                style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                                style="text-align: left">{{jiaquan}}ug/m³<span
+                                style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
+
+                    </div>
+
+                </div>
+                <div class="swiper-slide swiper-no-swiping" id="floor4Env">
+                    <img class="absolute1 envBG" src="img/env_bg.png" style="">
+                    <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
+                    <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
+                    <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
+                    <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+
+                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+
+                        <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
+                                style="text-align: left">{{pm25}}<span
+                                style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                                style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                                style="text-align: left">{{pm10}}<span
+                                style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                                style="text-align: left">{{yanwu}}ug/m³<span
+                                style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                                style="text-align: left">{{jiaquan}}ug/m³<span
+                                style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
+
+                    </div>
+
+                </div>
+                <div class="swiper-slide swiper-no-swiping">
+                    <img class="absolute1 envBG" src="img/env_bg.png" style="">
+                    <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
+                    <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
+                    <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
+                    <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+
+                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+
+                        <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
+                                style="text-align: left">{{pm25}}<span
+                                style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                                style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                                style="text-align: left">{{pm10}}<span
+                                style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
+                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                                style="text-align: left">{{yanwu}}ug/m³<span
+                                style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
+                        </p>
+                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                                style="text-align: left">{{jiaquan}}ug/m³<span
+                                style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class=" floor absolute1">
+        <div class="swiper-container main planSwiper " style="margin: 0" id="planSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-no-swiping floor1Container">
+                    <h1 style="color: white;position: absolute">1</h1>
+                    <div class="full-wrapper" id="floor1-wrapper">
+                        <svg id="floor1" class="designer"  style="background-image: url('img/floor1.png')">
+
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="swiper-slide swiper-no-swiping floor2Container">
+                    <h1 style="color: white;position: absolute">2</h1>
+                    <div class="full-wrapper">
+
+                        <svg id="floor2" class="designer" style="background-image: url('img/floor1.png')">
+
+                        </svg>
+                    </div>
+                </div>
+
+                <div  class="swiper-slide swiper-no-swiping floor3Container">
+                    <h1 style="color: white;position: absolute">3</h1>
+
+                    <div class="full-wrapper">
+                        <svg id="floor3" class="designer" style="background-image: url('img/floor1.png')">
+
+                        </svg>
+                    </div>
+
+                </div>
+
+                <div class="swiper-slide swiper-no-swiping floor4Container">
+                    <h1 style="color: white;position: absolute">4</h1>
+                    <div class="full-wrapper">
+
+                        <svg id="floor4" class="designer" style="background-image: url('img/floor1.png')">
+
+                        </svg>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Add Pagination -->
+
+<script src="script/flexible.js"></script>
+<script src="script/echarts.js"></script>
+<script src="script/jquery.js"></script>
+<script src="script/swiper-4.1.0.min.js"></script>
+<script src="script/vue.js"></script>
+<script src="script/d3.v3.js"></script>
+<script src="script/common.js"></script>
+<script src="script/floor1.js"></script>
+<script src="script/floor2.js"></script>
+<script src="script/floor3.js"></script>
+<script src="script/floor4.js"></script>
+<script src="script/scroll.js"></script>
+<script src="script/message.js"></script>
+
+<script>
+    var swiper = new Swiper('.planSwiper', {
+        disableOnInteraction: false,
+        // autoplay: {
+        //     delay: 3000,
+        //     stopOnLastSlide: false,
+        //     disableOnInteraction: true,
+        // },
+        direction: 'vertical',
+        on: {
+            slideChangeTransitionEnd: function () {
+                envSwiper.slideTo(this.activeIndex)
+            }
+        }
+    });
+    var envSwiper = new Swiper('.envSwiper', {
+        disableOnInteraction: false,
+        direction: 'vertical'
+    });
+    setYdQvXian({});
+    setWeekData({});
+    setI24Chart({});
+    getData();
+</script>
+</body>
+</html>

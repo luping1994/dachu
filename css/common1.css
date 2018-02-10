@@ -1,0 +1,327 @@
+html {
+    height: 20rem;
+    width: 35.55rem;
+    margin: 0;
+}
+
+body {
+    height: 20rem;
+    width: 35.55rem;
+    margin: 0;
+    text-align: center;
+}
+
+.logo {
+    left: 11.018519rem;
+    top: 0.333333rem;
+    width: 11.87037rem;
+}
+
+.main {
+    overflow: hidden;
+    height: 20rem;
+    width: 34.84rem;
+}
+
+.titleText {
+    position: absolute;
+    font-family: 微软雅黑;
+    color: #03AFF8;
+    vertical-align: center;
+    text-align: center;
+}
+
+.absolute1 {
+    position: absolute;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box; /* Firefox */
+    -webkit-box-sizing: border-box; /* Safari */
+}
+
+.border {
+    border: #006d6a solid;
+    /*background-color: red;*/
+}
+
+.logoheader {
+    width: 34.84rem;
+    height: 3rem;
+    left: 0.356rem;
+    right: 0.356rem;
+}
+
+.ydtongji {
+    left: 0.356rem;
+    width: 6.852rem;
+    height: 5.056rem;
+    top: 3.0rem;
+}
+
+.ydRect {
+    left: 0.555556rem;
+    top: 0.555556rem;
+    width: 2.277778rem;
+}
+
+.ydCircle {
+    left: 3%;
+    top: 30%;
+    width: 2.518519rem;
+}
+
+.ydIcon1 {
+    left: 2.962963rem;
+    top: 2.111111rem;
+    width: 0.555556rem;
+}
+
+.ydIcon2 {
+    left: 2.962963rem;
+    top: 2.796296rem;
+    width: 0.555556rem;
+}
+
+.monthUseValue {
+    left: 0.592593rem;
+    top: 1.851852rem;
+    text-align: center;
+    font-size: 0.462963rem;
+}
+
+.monthUseText {
+    left: 0.981481rem;
+    top: 2.777778rem;
+    font-size: 0.277778rem;
+}
+
+.yd-unit {
+    font-size: 0.277778rem;
+}
+
+.todayUseText {
+    left: 3.759259rem;
+    top: 1.981481rem;
+    font-size: 0.222222rem;
+}
+
+.yesterdayUseText {
+    left: 3.759259rem;
+    top: 2.685185rem;
+    font-size: 0.222222rem;
+}
+
+.todayUseValue {
+    left: 4.8rem;
+    top: 1.740741rem;
+    font-size: 0.37037rem;
+}
+
+.yesterdayUseValue {
+    left: 4.8rem;
+    top: 2.40rem;
+    font-size: 0.37037rem
+}
+
+.yongdianqvxian {
+    left: 0.388889rem;
+    width: 6.852rem;
+    height: 5.056rem;
+    top: 8.388889rem;
+}
+
+.ydQvRect {
+    left: 0.555556rem;
+    top: 0.277778rem;
+    width: 2.277778rem;
+}
+
+.ydQXChart {
+    top: 0.87037rem;
+    left: 0.148148rem;
+    width: 6.555556rem;
+    height: 4.203704rem;
+}
+
+.yichangtixian {
+    left: 0.37037rem;
+    width: 8.833333rem;
+    height: 5.0rem;
+    top: 13.754rem;
+}
+
+.huanjingyichang {
+    width: 8.833333rem;
+    height: 5.0rem;
+    top: 13.740741rem;
+    left: 9.5rem;
+}
+
+.gongao {
+    width: 8.833333rem;
+    height: 5.0rem;
+    top: 13.740741rem;
+    left: 18.62963rem;
+}
+
+.dianliu24 {
+    width: 7.351852rem;
+    height: 5.0rem;
+    top: 13.740741rem;
+    left: 27.759259rem;
+}
+
+.yongdian7day {
+    left: 27.759259rem;
+    top: 8.37037rem;
+    width: 7.351852rem;
+    height: 5.0rem;
+
+}
+
+.huangjingjiance {
+    left: 27.759259rem;
+    width: 7.351852rem;
+    height: 5.0rem;
+    top: 3.0rem;
+}
+
+.deviceYichang {
+    width: 7.407407rem;
+    left: 0.5rem;
+    top: 0.203704rem;
+}
+
+
+.deviceYCContent {
+    position: relative;
+    margin-top: 1.111111rem;
+    height: 3.455556rem;
+}
+
+.envYC {
+    width: 7.407407rem;
+    left: 0.333333rem;
+    top: 0.203704rem;
+}
+
+.i24Rect {
+    left: 0.388889rem;
+    top: 0.425926rem;
+    width: 3.537037rem;
+}
+
+.dlChartDiv {
+    top: 0.87037rem;
+    left: 0.148148rem;
+    width: 6.555556rem;
+    height: 4.203704rem;
+}
+
+.yd7 {
+    left: 0.407407rem;
+    top: 0.388889rem;
+    width: 3.037037rem;
+}
+
+.yd7ChartDiv {
+    top: 0.87037rem;
+    left: 0.148148rem;
+    width: 6.555556rem;
+    height: 4.203704rem;
+}
+
+.envBG {
+    width: 4.240741rem;
+    left: 0.407407rem;
+    top: 0.407407rem
+}
+
+.wenduValue {
+    left: 1.448148rem;
+    top: 1.240741rem;
+    font-size: 0.392593rem;
+}
+
+.shiduValue {
+    left: 1.648148rem;
+    top: 2.777778rem;
+    font-size: 0.277778rem;
+}
+
+.wenduEva {
+    left: 2.037037rem;
+    top: 1.925926rem;
+    font-size: 0.259259rem;
+}
+
+.shiduEva {
+    left: 2.037037rem;
+    top: 3.111111rem;
+    font-size: 0.259259rem;
+}
+
+.envData {
+    line-height: 0.277778rem;
+    text-align: left;
+    font-size: 0.277778rem;
+}
+
+svg.designer {
+    width: 20.185185rem;
+    height: 10.37037rem;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+}
+
+.floor {
+    width: 20.185185rem;
+    height: 10.37037rem;
+    left: 7.407407rem;
+    top: 3.0rem;
+}
+
+.floorText {
+    left: 24.888889rem;
+    top: 1.185185rem;
+    font-size: 1.666667rem;
+    color: white;
+}
+
+.floorText span {
+    font-size: 0.740741rem;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.full-wrapper{
+    width: 100%;
+    overflow: hidden;
+}

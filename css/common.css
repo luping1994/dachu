@@ -1,0 +1,170 @@
+html {
+    height: 20rem;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+.titleText {
+    position: absolute;
+    font-family: 微软雅黑;
+    color: #03AFF8;
+    vertical-align: center;
+    text-align: center;
+}
+
+.absolute1 {
+    position: absolute;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box; /* Firefox */
+    -webkit-box-sizing: border-box; /* Safari */
+}
+
+.main {
+    height: 100%;
+    width: 98%;
+}
+
+.border {
+    border: #006d6a solid;
+    /*background-color: red;*/
+}
+
+.logoheader {
+    width: 98%;
+    height: 15%;
+    left: 1%;
+    right: 1%;
+}
+
+.ydtongji {
+    left: 1%;
+    width: 19.270333%;
+    height: 25.27777%;
+    top: 15%;
+}
+
+.ydRect {
+    left: 5%;
+    top: 10.98%;
+    width: 2.277778rem;
+}
+
+.ydCircle {
+    left: 3%;
+    top: 30%;
+    width: 2.518519rem;
+}
+
+.ydIcon1 {
+    left: 45%;
+    top: 42%;
+    width: 0.555556rem;
+}
+
+.ydIcon2 {
+    left: 45%;
+    top: 60%;
+    width: 0.555556rem;
+}
+
+.monthUseValue {
+    left: 10%;
+    top: 40%;
+    text-align: center;
+    font-size: 0.462963rem;
+}
+
+.monthUseText {
+    left: 15%;
+    top: 60%;
+    font-size: 0.277778rem;
+}
+
+.yd-unit {
+    font-size: 0.277778rem;
+}
+
+.todayUseText {
+    left: 55%;
+    top: 38%;
+    font-size: 0.277778rem;
+}
+
+.yesterdayUseText {
+    left: 55%;
+    top: 55%;
+    font-size: 0.277778rem;
+}
+.todayUseValue{
+    left: 73%;
+    top: 35%;
+    font-size: 0.37037rem;
+}
+.yesterdayUseValue{
+    left: 73%;
+    top: 51%;
+    font-size: 0.37037rem
+}
+.yongdianqvxian {
+    left: 1%;
+    width: 19.270333%;
+    height: 25.27777%;
+    top: 41.777%;
+}
+
+.ydQvRect {
+    left: 5%;
+    top: 5.98%;
+    width: 2.277778rem;
+}
+
+.qdQXChart {
+    top: 20%;
+    width: 100%;
+    height: 90%;
+}
+
+.yichangtixian {
+    left: 1%;
+    width: 37.916666%;
+    height: 25.27777%;
+    top: 68.777%;
+}
+
+.huanjingyichang {
+    width: 37.916666%;
+    height: 25.27777%;
+    top: 68.777%;
+    left: 40%;
+}
+
+.dianliu24 {
+    width: 19.270333%;
+    height: 25.27777%;
+    top: 68.777%;
+    left: 79%;
+}
+
+.yongdian7day {
+    left: 79%;
+    width: 19.270333%;
+    height: 25.27777%;
+    top: 41.777%;
+}
+
+.huangjingjiance {
+    left: 79%;
+    width: 19.270333%;
+    height: 25.27777%;
+    top: 15%;
+}
+
+.floor {
+}
