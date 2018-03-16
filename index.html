@@ -4,16 +4,63 @@
     <meta charset="UTF-8">
     <title>办公楼智慧能管系统</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1920, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="css/common1.css">
+    <meta name="viewport" content="width=1920, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="css/common_new.css">
+
     <link rel="stylesheet" href="css/swiper-4.1.0.min.css">
+
+    <style>
+        [v-cloak] {
+            display: none !important;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 0.333333rem;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-pagination-bullet {
+            width: 0.370370rem;
+            height:  0.370370rem;
+            text-align: center;
+            line-height: 0.370370rem;
+            font-size: 0.222rem;
+            color: #fff;
+            opacity: 1;
+            background-image: url('img/nav_unactive.png');
+            border-radius: 0;
+            background-color: transparent;
+
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background-color: transparent;
+            border-radius: 0;
+            background-image: url('img/nav_active.png');
+
+        }
+    </style>
 </head>
-<body style="background: url('img/bg_main.png');position: relative" >
-<div class="main" >
+<body style="background: url('img/bg_main.png'); ">
+<div class="main" style="position:relative;margin: 0 auto">
     <div class="logoheader  absolute1">
         <img src="img/logo.png" class="absolute1 logo">
 
-        <div class="swiper-container main planSwiper" style="margin: 0">
+        <div class="swiper-container main planTextSwiper" style="margin: 0">
             <div class="swiper-wrapper">
                 <div class="swiper-slide swiper-no-swiping">
                     <div class=" absolute1 floorText">1<span>楼</span></div>
@@ -30,18 +77,27 @@
             </div>
         </div>
     </div>
+    <!-- Swiper -->
+    <div class="swiper-container messageSwiper " id="messageSwiper">
+        <div class="swiper-wrapper" id="msgContainer">
 
-    <div class="border ydtongji absolute1" id="electricity">
+        </div>
+    </div>
+
+    <div v-cloak class="border ydtongji absolute1" id="electricity">
         <img class="absolute1 ydRect" src="img/yongdiantongji.png">
         <img class="absolute1 ydCircle" src="img/energy_circle.png">
         <img class="absolute1 ydIcon1" src="img/elec.png">
         <img class="absolute1 ydIcon2" src="img/elec.png">
+        <img class="absolute1 ydIcon3" src="img/elec.png">
         <p class="absolute1 titleText monthUseValue">{{month}}<span class="yd-unit">kW·h</span></p>
         <p class="absolute1 titleText monthUseText">本月用电</p>
         <p class="absolute1 titleText todayUseValue">{{today}}<span class="yd-unit">kW·h</span></p>
         <p class="absolute1 titleText todayUseText">今日用电</p>
         <p class="absolute1 titleText yesterdayUseValue">{{yesterday}}<span class="yd-unit">kW·h</span></p>
         <p class="absolute1 titleText yesterdayUseText">昨日用电</p>
+        <p class="absolute1 titleText gonglvValue">{{power}}<span class="yd-unit">kW</span></p>
+        <p class="absolute1 titleText gonglvText">实时负载</p>
 
     </div>
 
@@ -53,7 +109,7 @@
         </div>
     </div>
 
-    <div class="border yichangtixian absolute1">
+    <div class="border yichangtixian absolute1" style="display: none">
         <img class="absolute1 deviceYichang" src="img/yichang.png">
 
         <div class="deviceYCContent devMsg " style="overflow-y: hidden">
@@ -64,7 +120,7 @@
     </div>
 
 
-    <div class="border huanjingyichang absolute1">
+    <div class="border huanjingyichang absolute1" style="display: none">
         <img class="absolute1 envYC" src="img/env_yichang.png">
 
         <div class="deviceYCContent envMSg" style="overflow-y: hidden">
@@ -74,21 +130,41 @@
         </div>
     </div>
 
-    <div class="border gongao absolute1">
+    <div class="border gongao absolute1" style="display: none">
         <img class="absolute1 deviceYichang" src="img/gonggao.png">
-
         <div class="deviceYCContent">
-
-
+            <ul style="margin-top: 1rem">
+                <li>
+                    <p style="text-align: left"><span class="YichangName">无公告信息!</span>
+                </li>
+            </ul>
         </div>
     </div>
 
     <div class="border dianliu24 absolute1">
-        <img class="absolute1 i24Rect" src="img/I24title.png">
+        <div class="swiper-container IVP24" style="margin: 0">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide ">
+                    <img class="absolute1 i24Rect" src="img/I24title.png">
+                    <div class="absolute1 dlChartDiv" id="dlChart">
 
-        <div class="absolute1 dlChartDiv" id="dlChart">
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <img class="absolute1 i24Rect" src="img/V24.png">
+                    <div class="absolute1 dlChartDiv" id="V24Chart">
 
+                    </div>
+                </div>
+                <div class="swiper-slide ">
+                    <img class="absolute1 i24Rect" src="img/P24.png">
+                    <div class="absolute1 dlChartDiv" id="P24Chart">
+
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="border yongdian7day absolute1">
@@ -100,147 +176,151 @@
     </div>
 
     <div class="border huangjingjiance absolute1">
-        <div class="swiper-container main envSwiper" style="margin: 0">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-no-swiping" id="floor1Env">
+        <div class="absolute1 swiper-container main envSwiper" style="margin: 0">
+            <div class="absolute1 swiper-wrapper">
+                <div v-cloak class="swiper-slide swiper-no-swiping absolute1" id="floor1Env" style="">
                     <img class="absolute1 envBG" src="img/env_bg.png" style="">
                     <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
                     <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
                     <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
                     <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+                    <p class="absolute1 titleText env1text" style="">1楼</p>
 
-                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+                    <div class="absolute1" style="left: 4.814814rem;top: 0rem;color: #3af2fd;">
 
                         <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
                                 style="text-align: left">{{pm25}}<span
                                 style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                        <p class="envData" style="margin-top: 0.3333333rem">PM1<br/><span style="text-align: left">{{pm1}}<span
                                 style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
-                                style="text-align: left">{{pm10}}[<span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">PM10<br/><span
+                                style="text-align: left">{{pm10}}<span
                                 style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">烟雾浓度<br/><span
                                 style="text-align: left">{{yanwu}}ug/m³<span
                                 style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">甲醛<br/><span
                                 style="text-align: left">{{jiaquan}}ug/m³<span
                                 style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
 
                     </div>
 
                 </div>
-                <div class="swiper-slide swiper-no-swiping" id="floor2Env">
+                <div v-cloak class="swiper-slide swiper-no-swiping absolute1" id="floor2Env">
                     <img class="absolute1 envBG" src="img/env_bg.png" style="">
                     <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
                     <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
                     <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
                     <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+                    <p class="absolute1 titleText env1text" style="">2楼</p>
 
-                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+                    <div class="absolute1" style="left: 4.814814rem;top: 0rem;color: #3af2fd;">
 
                         <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
                                 style="text-align: left">{{pm25}}<span
                                 style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                        <p class="envData" style="margin-top: 0.33333333rem">PM1<br/><span style="text-align: left">{{pm1}}<span
                                 style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">PM10<br/><span
                                 style="text-align: left">{{pm10}}<span
                                 style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">烟雾浓度<br/><span
                                 style="text-align: left">{{yanwu}}ug/m³<span
                                 style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">甲醛<br/><span
                                 style="text-align: left">{{jiaquan}}ug/m³<span
                                 style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
 
                     </div>
 
                 </div>
-                <div class="swiper-slide swiper-no-swiping" id="floor3Env">
+                <div v-cloak class="swiper-slide swiper-no-swiping absolute1" id="floor3Env">
                     <img class="absolute1 envBG" src="img/env_bg.png" style="">
                     <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
                     <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
                     <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
                     <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+                    <p class="absolute1 titleText env1text" style="">3楼</p>
 
-                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+                    <div class="absolute1" style="left: 4.814814rem;top: 0rem;color: #3af2fd;">
 
                         <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
                                 style="text-align: left">{{pm25}}<span
                                 style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                        <p class="envData" style="margin-top: 0.333333333rem">PM1<br/><span style="text-align: left">{{pm1}}<span
                                 style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">PM10<br/><span
                                 style="text-align: left">{{pm10}}<span
                                 style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">烟雾浓度<br/><span
                                 style="text-align: left">{{yanwu}}ug/m³<span
                                 style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">甲醛<br/><span
                                 style="text-align: left">{{jiaquan}}ug/m³<span
                                 style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
 
                     </div>
 
                 </div>
-                <div class="swiper-slide swiper-no-swiping" id="floor4Env">
+                <div v-cloak class="swiper-slide swiper-no-swiping absolute1" id="floor4Env">
                     <img class="absolute1 envBG" src="img/env_bg.png" style="">
                     <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
                     <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
                     <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
                     <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
+                    <p class="absolute1 titleText env1text" style="">4楼</p>
 
-                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+                    <div class="absolute1" style="left: 4.814814rem;top: 0rem;color: #3af2fd;">
 
                         <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
                                 style="text-align: left">{{pm25}}<span
                                 style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                        <p class="envData" style="margin-top:  0.333333333rem;">PM1<br/><span style="text-align: left">{{pm1}}<span
                                 style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">PM10<br/><span
                                 style="text-align: left">{{pm10}}<span
                                 style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">烟雾浓度<br/><span
                                 style="text-align: left">{{yanwu}}ug/m³<span
                                 style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">甲醛<br/><span
                                 style="text-align: left">{{jiaquan}}ug/m³<span
                                 style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
 
                     </div>
 
                 </div>
-                <div class="swiper-slide swiper-no-swiping">
+                <div v-cloak class="swiper-slide swiper-no-swiping absolute1">
                     <img class="absolute1 envBG" src="img/env_bg.png" style="">
                     <p class="absolute1 titleText wenduValue" style="">{{wendu}}℃</p>
                     <p class="absolute1 titleText shiduValue" style="">{{shidu}}%Rh</p>
                     <p class="absolute1 titleText wenduEva" style="">[{{showWendu[0]}}]</p>
                     <p class="absolute1 titleText shiduEva" style="">[{{showShidu[0]}}]</p>
 
-                    <div class="absolute1" style="left: 4.814814rem;color: #3af2fd;">
+                    <div class="absolute1" style="left: 4.814814rem;top: 0rem;color: #3af2fd;">
 
                         <p class="envData" style="margin-top: 0.703rem;">PM2.5<br/><span
                                 style="text-align: left">{{pm25}}<span
                                 style="color: #0c6be2">[{{showPm25[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 18px;">PM1<br/><span style="text-align: left">{{pm1}}<span
+                        <p class="envData" style="margin-top: 0.333333333rem;">PM1<br/><span style="text-align: left">{{pm1}}<span
                                 style="color: #0c6be2">[{{showPm1[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">PM10<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">PM10<br/><span
                                 style="text-align: left">{{pm10}}<span
                                 style="color: #0c6be2">[{{showPm10[0]}}]</span></span></p>
-                        <p class="envData" style="margin-top: 13px;">烟雾浓度<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">烟雾浓度<br/><span
                                 style="text-align: left">{{yanwu}}ug/m³<span
                                 style="color: #0c6be2">[{{showYanwu[0]}}]</span></span>
                         </p>
-                        <p class="envData" style="margin-top: 13px;">甲醛<br/><span
+                        <p class="envData" style="margin-top: 0.2407407407rem;">甲醛<br/><span
                                 style="text-align: left">{{jiaquan}}ug/m³<span
                                 style="color: #0c6be2">[{{showJiaquan[0]}}]</span></span></p>
 
@@ -250,52 +330,73 @@
         </div>
 
     </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination" style="position: absolute;right: 3.148rem;top: 1.407407rem;width: 1.574075rem">
+
+    </div>
     <div class=" floor absolute1">
+
         <div class="swiper-container main planSwiper " style="margin: 0" id="planSwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-no-swiping floor1Container">
-                    <h1 style="color: white;position: absolute">1</h1>
+                <div class="swiper-slide  floor1Container ">
+                    <div class=" absolute1" id="track" style="z-index: 5;height: 100%;width: 100%">
+
+
+                    </div>
                     <div class="full-wrapper" id="floor1-wrapper">
-                        <svg id="floor1" class="designer"  style="background-image: url('img/floor1.png')">
+                        <svg id="floor1" class="designer" style="background-image: url('img/floor1.png')">
 
                         </svg>
                     </div>
                 </div>
 
-                <div class="swiper-slide swiper-no-swiping floor2Container">
-                    <h1 style="color: white;position: absolute">2</h1>
-                    <div class="full-wrapper">
+                <div class="swiper-slide  floor2Container ">
+                    <div class=" absolute1" id="track2" style="z-index: 5;height: 100%;width: 100%">
 
-                        <svg id="floor2" class="designer" style="background-image: url('img/floor1.png')">
+
+                    </div>
+                    <div class="full-wrapper" id="floor2-wrapper">
+
+                        <svg id="floor2" class="designer" style="background-image: url('img/floor2.png')">
 
                         </svg>
                     </div>
                 </div>
 
-                <div  class="swiper-slide swiper-no-swiping floor3Container">
-                    <h1 style="color: white;position: absolute">3</h1>
+                <div class="swiper-slide  floor3Container ">
+                    <div class=" absolute1" id="track3" style="z-index: 5;height: 100%;width: 100%">
 
-                    <div class="full-wrapper">
-                        <svg id="floor3" class="designer" style="background-image: url('img/floor1.png')">
+
+                    </div>
+                    <div class="full-wrapper" id="floor3-wrapper">
+                        <svg id="floor3" class="designer" style="background-image: url('img/floor3.png')">
 
                         </svg>
                     </div>
 
                 </div>
 
-                <div class="swiper-slide swiper-no-swiping floor4Container">
-                    <h1 style="color: white;position: absolute">4</h1>
-                    <div class="full-wrapper">
+                <div class="swiper-slide floor4Container ">
+                    <div class=" absolute1" id="track4" style="z-index: 5;height: 100%;width: 100%">
 
-                        <svg id="floor4" class="designer" style="background-image: url('img/floor1.png')">
+
+                    </div>
+                    <div class="full-wrapper" id="floor4-wrapper">
+                        <svg id="floor4" class="designer" style="background-image: url('img/floor4.png')">
 
                         </svg>
                     </div>
 
                 </div>
+
 
             </div>
         </div>
+        <img src="img/tip.png" style="z-index: 100;width: 6.518rem;left: 17.777778rem;top: 12.629629rem;position: absolute">
+    </div>
+    <img src="img/suntrans.png" class="absolute1 suntrans">
+
+    <div id="tips" style="position: absolute;left: 900px;top: 20px;color: white;font-size: 40px">
 
     </div>
 </div>
@@ -303,7 +404,7 @@
 <!-- Add Pagination -->
 
 <script src="script/flexible.js"></script>
-<script src="script/echarts.js"></script>
+<script src="script/echarts.min.js"></script>
 <script src="script/jquery.js"></script>
 <script src="script/swiper-4.1.0.min.js"></script>
 <script src="script/vue.js"></script>
@@ -313,32 +414,147 @@
 <script src="script/floor2.js"></script>
 <script src="script/floor3.js"></script>
 <script src="script/floor4.js"></script>
-<script src="script/scroll.js"></script>
 <script src="script/message.js"></script>
 
 <script>
+    var intervalTime = 3000;
+    //定时ID
+    var floor1ID;
+    var floor2ID;
+    var floor3ID;
+    var floor4ID;
+    var getDataID;
+    //楼层平面图切换页面
     var swiper = new Swiper('.planSwiper', {
         disableOnInteraction: false,
         autoplay: {
-            delay: 3000,
+            delay: 180000,
             stopOnLastSlide: false,
             disableOnInteraction: true,
         },
-        direction: 'vertical',
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            },
+        },
         on: {
             slideChangeTransitionEnd: function () {
-                envSwiper.slideTo(this.activeIndex)
+                envSwiper.slideTo(this.activeIndex);
+                planTextSwiper.slideTo(this.activeIndex)
+                if (this.activeIndex == 0) {
+                    clearTimer();
+                    getPlan1Data();
+                    floor1ID = setInterval(' getPlan1Data()', intervalTime);
+
+                } else if (this.activeIndex == 1) {
+                    clearTimer();
+                    getPlan2Data();
+                    floor2ID = setInterval(' getPlan2Data()', intervalTime);
+
+                } else if (this.activeIndex == 2) {
+                    clearTimer();
+                    getPlan3Data();
+                    floor3ID = setInterval(' getPlan3Data()', intervalTime);
+
+                } else if (this.activeIndex == 3) {
+                    clearTimer();
+                    getPlan4Data();
+                    floor4ID = setInterval(' getPlan4Data()', intervalTime);
+
+                }
             }
         }
     });
+
+    function clearTimer() {
+        if (floor1ID) {
+            clearInterval(floor1ID);
+        }
+        if (floor2ID) {
+            clearInterval(floor2ID);
+        }
+        if (floor3ID) {
+            clearInterval(floor3ID);
+        }
+        if (floor4ID) {
+            clearInterval(floor4ID);
+        }
+    }
+
+    //环境参数切换页
     var envSwiper = new Swiper('.envSwiper', {
         disableOnInteraction: false,
         direction: 'vertical'
     });
-    setYdQvXian({});
-    setWeekData({});
-    setI24Chart({});
-    getData();
+
+    //楼层切换
+    var planTextSwiper = new Swiper('.planTextSwiper', {
+        disableOnInteraction: false,
+        direction: 'vertical'
+    });
+    //电压电流图表切换
+    var IVP24 = new Swiper('.IVP24', {
+        autoplay: {
+            delay: 60000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+        },
+        disableOnInteraction: false,
+        direction: 'vertical'
+    });
+
+
+    //获取数据
+    getData();//通用数据
+    getPlan1Data();//一楼灯的坐标
+    getPlan2Data();
+    getPlan3Data();
+    getPlan4Data();
+
+    floor1ID = setInterval('getPlan1Data()', 30000);
+    getDataID = setInterval('getData()', 180000);
+
+    setInterval('refreshCharts()', 6000);
+
+
+    function refreshCharts() {
+        var option2 = ydlChart.getOption();
+        ydlChart.clear();
+        ydlChart.setOption(option2);
+
+
+        var option3 = weekChart.getOption();
+        weekChart.clear();
+        weekChart.setOption(option3);
+
+        var option4 = dianliu.getOption();
+        dianliu.clear();
+        dianliu.setOption(option4);
+
+        var option5 = dianya.getOption();
+        dianya.clear();
+        dianya.setOption(option5);
+
+        var option6 = gonglv.getOption();
+        gonglv.clear();
+        gonglv.setOption(option6)
+    }
+
 </script>
+
+<!--平面图各个路径效果-->
+<script src="script/floor1track.js"></script>
+<script src="script/floor2track.js"></script>
+<script src="script/floor3track.js"></script>
+<script src="script/floor4track.js"></script>
+
+<script>
+
+</script>
+
+
 </body>
 </html>

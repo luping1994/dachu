@@ -16,7 +16,7 @@ body {
 .logo {
     /*left: 11.018519rem;*/
     left: 0rem;
-    top: 0.333333rem;
+    top: 0;
     width: 11.87037rem;
 }
 
@@ -42,7 +42,8 @@ body {
 }
 
 .border {
-    border: #006d6a solid;
+    /*border: #006d6a solid;*/
+    background-color: #0a1b3b;
     /*background-color: red;*/
 }
 
@@ -55,10 +56,10 @@ body {
 }
 
 .ydtongji {
-    left: 0.356rem;
-    width: 6.852rem;
-    height: 5.056rem;
-    top: 3.0rem;
+    left: 56px;
+    top: 114px;
+    width: 473px;
+    height: 276px;
 }
 
 .ydRect {
@@ -145,10 +146,10 @@ body {
 }
 
 .yongdianqvxian {
-    left: 0.388889rem;
-    width: 6.852rem;
-    height: 5.056rem;
-    top: 8.388889rem;
+    left: 56px;
+    width: 473px;
+    height: 314px;
+    top: 407px;
 }
 
 .ydQvRect {
@@ -160,8 +161,8 @@ body {
 .ydQXChart {
     top: 0.87037rem;
     left: 0.148148rem;
-    width: 6.555556rem;
-    height: 4.203704rem;
+    width: 95%;
+    height: 95%;
 }
 
 .yichangtixian {
@@ -186,25 +187,25 @@ body {
 }
 
 .dianliu24 {
-    width: 7.351852rem;
-    height: 5.0rem;
-    top: 13.740741rem;
-    left: 27.759259rem;
+    height: 221px;
+    width: 641px;
+    top: 809px;
+    left: 556px;
 }
 
 .yongdian7day {
-    left: 27.759259rem;
-    top: 8.37037rem;
-    width: 7.351852rem;
-    height: 5.0rem;
+    left: 1219px;
+    top: 809px;
+    width: 641px;
+    height: 221px;
 
 }
 
 .huangjingjiance {
-    left: 27.759259rem;
-    width: 7.351852rem;
-    height: 5.0rem;
-    top: 3.0rem;
+    left: 56px;
+    width: 472px;
+    height: 293px;
+    top: 737px;
 }
 
 .deviceYichang {
@@ -234,8 +235,8 @@ body {
 .dlChartDiv {
     top: 0.87037rem;
     left: 0.148148rem;
-    width: 6.555556rem;
-    height: 4.203704rem;
+    width: 95%;
+    height: 95%;
 }
 
 .yd7 {
@@ -247,8 +248,8 @@ body {
 .yd7ChartDiv {
     top: 0.87037rem;
     left: 0.148148rem;
-    width: 6.555556rem;
-    height: 4.203704rem;
+    width: 95%;
+    height: 95%;
 }
 
 .envBG {
@@ -281,6 +282,12 @@ body {
     font-size: 0.259259rem;
 }
 
+.env1text {
+    left: 1.55rem;
+    top: 3.5rem;
+    font-size: 0.6rem;
+}
+
 .envData {
     line-height: 0.277778rem;
     text-align: left;
@@ -288,8 +295,8 @@ body {
 }
 
 svg.designer {
-    width: 20.185185rem;
-    height: 10.37037rem;
+    width: 1309px;
+    height: 693px;
     border: 0px;
     padding: 0px;
     margin: 0px;
@@ -303,16 +310,16 @@ svg.designer {
 }
 
 .floor {
-    width: 20.185185rem;
-    height: 11.16666666rem;
-    left: 7.407407rem;
-    top: 2.5rem;
+    width: 1309px;
+    height: 693px;
+    left: 552px;
+    top: 106px;
 }
 
 .floorText {
-    left: 24.888889rem;
+    right: 50px;
     top: 0.6085185rem;
-    font-size: 1.666667rem;
+    font-size: 1.2rem;
     color: white;
 }
 
@@ -361,15 +368,14 @@ svg.designer {
 
 .suntrans {
     left: 12.648148rem;
-    top: 19.111111rem;
+    top: 19.311111rem;
     width: 10.259259rem;
 }
 
 .ele {
-    width: 18px;
-    height: 18px;
+
     animation-name: stretch;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-timing-function: ease-out;
     animation-delay: 0ms;
     animation-direction: alternate;
@@ -380,18 +386,60 @@ svg.designer {
 
 @keyframes stretch {
     0% {
-        opacity: 0.4;
+        opacity: 0.2;
     }
     40% {
         opacity: 1;
     }
-    60%{
+    60% {
         opacity: 1;
     }
     100% {
-        opacity: 0.4;
+        opacity: 0.2;
+    }
+}
+@-webkit-keyframes stretch {
+    0% {
+        opacity: 0.2;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
     }
 }
 
+@-webkit-keyframes circle{
 
+    0%{ transform:rotate(0deg); }
 
+    100%{ transform:rotate(-360deg); }
+
+}
+@keyframes circle{
+
+    0%{ transform:rotate(0deg); }
+
+    100%{ transform:rotate(-360deg); }
+
+}
+.messageSwiper {
+    color: white;
+    position: absolute;
+    left: 200px;
+    top: 60px;
+    height: 45px;
+    width: 600px;
+    text-align: center;
+}
+
+.messageSlide p {
+    width: 100%;
+    text-align: left;
+    line-height: 70px;
+
+}

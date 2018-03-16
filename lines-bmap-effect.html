@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height:100%;width: 100%">
+
+
+</div>
+<script src="script/echarts.js"></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var busLines = [
+            {
+                name: "test",
+                coords: [
+                    [0, 66],  // 起点
+                    [1, 66],  // 起点
+                    [2, 66],  // 起点
+                    [3, 66],  // 起点
+                    [4, 66],  // 起点
+                    [5, 66],  // 起点
+                    [6, 66],  // 起点
+                    [7, 90],  // 起点
+                    [8, 90],  // 起点
+                    [9, 90],  // 起点
+                    [10, 90],  // 起点
+                    [11, 90],  // 起点
+                    [12, 90],  // 起点
+                    [14, 90],  // 起点
+                ],
+
+                lineStyle: {
+                    normal: {
+                        color: "#ff0000"
+                    }
+                }
+            }
+
+        ];
+
+    var option = {
+        backgroundColor: '#000000',
+        title: {
+            text: '',
+            subtext: '',
+            left: 'center',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        xAxis: {
+
+            show:false,
+            data: [0,1,2,3,4,5,6,7,8,9,10,11,12,14]
+        },
+        yAxis:{
+            show:false,
+            data: [66]
+        },
+        legend: {
+            orient: 'vertical',
+            top: 'bottom',
+            left: 'right',
+            data: [''],
+            textStyle: {
+                color: '#fff'
+            },
+        },
+
+        series: [
+
+
+            {
+                type: 'lines',
+                coordinateSystem: 'cartesian2d',
+                polyline: true,
+                data: busLines,
+                lineStyle: {
+                    // 径向渐变，前三个参数分别是圆心 x, y 和半径，取值同线性渐变
+                   width:0
+                },
+                effect: {
+                    constantSpeed: 50,
+                    show: true,
+                    trailLength: 0.1,
+                    symbolSize: 2,
+                },
+                zlevel: 1
+            }]
+    };
+    myChart.setOption(option);
+
+</script>
+</body>
+</html>
